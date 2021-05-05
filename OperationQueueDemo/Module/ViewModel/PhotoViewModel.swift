@@ -55,25 +55,25 @@ class PhotoViewModel {
         operations.suspendResumeAllOperations(isSuspended: isSuspended)
     }
     func performOperationForOnScreenCells(in tableView: UITableView) {
-        // Getting on screen cells
+        
         if let visibleIndexPathArray = tableView.indexPathsForVisibleRows {
             var allPendingOperation = Set(operations.downloadInProgress.keys)
             allPendingOperation.formUnion(operations.filterInProgress.keys)
-            // Determining Operations that to be cancelled
+            
             var operationsToBeCancel = allPendingOperation
             let visibleCells = Set(visibleIndexPathArray)
             operationsToBeCancel.subtract(visibleCells)
-            // Determining operation that to be started
+            
             var operationsToBeStarted = visibleCells
             operationsToBeStarted.subtract(allPendingOperation)
-            // Cancelling all the operations
+            
             operationsToBeCancel.forEach { indexPath in
                 operations.downloadOperation(at: indexPath)?.cancel()
                 operations.removeDownloadOperation(at: indexPath)
                 operations.filterOperation(at: indexPath)?.cancel()
                 operations.removeFilterOperation(at: indexPath)
             }
-            // resuming operations
+            
             operationsToBeStarted.forEach { indexPath in
                 let photo = self.photo(at: indexPath.row)
                 checkOperation(for: photo, at: indexPath, in: tableView)
@@ -83,8 +83,7 @@ class PhotoViewModel {
     private func checkOperation(for photo: PhotoProtocol, at index: IndexPath, in tableView: UITableView) {
         switch photo.state {
         case .new, .downloaded:
-            // start activity
-            // download/filter operation for image
+          
             self.startOperations(for: photo, at: index, in: tableView)
             
         case .failed:
@@ -183,42 +182,3 @@ class PendingOperations {
         filtrationQueue.isSuspended = isSuspended
     }
 }
-//
-//    private let router = Router<PhotoAPI>()
-//    private let apiKey = ""
-//    weak var delegate: PhotoViewModelDelegate?
-//
-//    var photoData: [PhotoCellViewModelProtocol] {
-//        didSet {
-//            self.delegate?.reloadData()
-//        }
-//    }
-//    init(delegate: PhotoViewModelDelegate) {
-//        self.delegate = delegate
-//        self.photoData = []
-//    }
-//
-//    func getPhotoImage() {
-//        router.request(.defaultSearch(apiKey: self.apiKey)) { [weak self] (results: Result<Photos, AppError>) in
-//            guard let self = self else { return }
-//            switch results {
-//            case .success(let data):
-//
-//                self.photoData = data.compactMap {
-//                    PhotoCellViewModel(photo: $0)
-//                }
-//
-//            case .failure(let error):
-//                // insert your modifications!
-//                print(error)
-//            }
-//        }
-//    }
-//    func numberOfRowsIn(section: Int) -> Int {
-//        self.photoData.count
-//    }
-//
-//    func photo(at index: Int) -> PhotoCellViewModelProtocol {
-//        self.photoData[index]
-//    }
-// }
