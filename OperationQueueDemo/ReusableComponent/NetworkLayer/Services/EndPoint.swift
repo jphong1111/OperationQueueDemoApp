@@ -1,5 +1,5 @@
 //
-//  EndPointType.swift
+//  EndPoint.swift
 //  OperationQueueDemo
 //
 //  Created by JungpyoHong on 5/4/21.
@@ -22,15 +22,12 @@ extension EndPoint {
         }
         return url
     }
-    
     var httpMethod: HTTPMethod {
         .get
     }
-    
     var task: HTTPTask {
         .request
     }
-    
     var headers: HTTPHeaders? {
         nil
     }

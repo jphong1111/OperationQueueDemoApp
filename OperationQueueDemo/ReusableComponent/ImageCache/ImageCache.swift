@@ -8,7 +8,6 @@
 import UIKit
 
 final class ImageCache {
-    
     private lazy var imageCache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
         return cache

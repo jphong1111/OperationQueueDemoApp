@@ -8,13 +8,11 @@
 import UIKit
 
 class PhotoDownloaderOperation: Operation {
-    
     var photo: PhotoProtocol
     
     init(photo: PhotoProtocol) {
         self.photo = photo
     }
-    
     override func main() {
         if isCancelled {
             return
@@ -22,7 +20,6 @@ class PhotoDownloaderOperation: Operation {
         guard let url = URL(string: photo.raw) else {
             fatalError("Url not valid")
         }
-        
         do {
             let imageData = try Data(contentsOf: url)
             if isCancelled {
@@ -36,8 +33,7 @@ class PhotoDownloaderOperation: Operation {
             }
             photo.image = UIImage(data: imageData)
             photo.state = .downloaded
-        }
-        catch {
+        } catch {
             // handle error here
             photo.image = nil
             photo.state = .failed

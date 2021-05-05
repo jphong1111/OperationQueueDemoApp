@@ -16,14 +16,12 @@ enum PhotoAPI: EndPoint {
             return ""
         }
     }
-    
     var baseURL: URL {
         guard let url = URL(string: "https://api.unsplash.com/collections/?client_id=2TZgdxa0VJ5bOq4Kbdd0ITUxRUgNN7Fk5kVm87EsloU") else {
             fatalError("Bad Base Url")
         }
         return url
     }
-    
     var task: HTTPTask {
         .request
     }

@@ -8,12 +8,10 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell, ReusableView {
-    
-    
-    
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+
+    @IBOutlet private weak var photoImageView: UIImageView!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
     var photo: PhotoProtocol? = nil {
         didSet {
             self.photoImageView.image = photo?.image
@@ -22,11 +20,10 @@ class PhotoTableViewCell: UITableViewCell, ReusableView {
             switch state {
             case .new, .downloaded:
                 self.indicatorView.startAnimating()
+                
             case .failed, .filtered:
                 self.indicatorView.stopAnimating()
             }
-            
         }
     }
-    
 }

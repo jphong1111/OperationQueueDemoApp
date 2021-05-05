@@ -13,7 +13,6 @@ class PhotoFilterOperation: Operation {
     init(photo: PhotoProtocol) {
         self.photo = photo
     }
-    
     override func main() {
         if isCancelled {
             return
@@ -27,18 +26,14 @@ class PhotoFilterOperation: Operation {
         photo.image = filterImage
         photo.state = .filtered
     }
-    
     func filter(image: UIImage, option: CIFilter) -> UIImage? {
         guard let data = image.jpegData(compressionQuality: 0.5) else { return nil }
         let imageToFilter = CIImage(data: data)
-        
         if isCancelled {
             return nil
         }
-        
         option.setValue(imageToFilter, forKey: kCIInputImageKey)
         option.setValue(0.8, forKey: kCIInputIntensityKey)
-        
         if isCancelled {
             return nil
         }

@@ -24,12 +24,12 @@ extension UITableView {
         }
         return cell
     }
-    
     func registerCell<T: UITableViewCell>(_ cellClasses: T.Type...) where T: ReusableView {
         cellClasses.forEach { self.register($0, forCellReuseIdentifier: $0.identifier) }
     }
-    
     func registerNibCell<T: UITableViewCell>(_ cellClasses: T.Type...) where T: ReusableView {
-        cellClasses.forEach { self.register(UINib(nibName: $0.identifier, bundle: Bundle.main), forCellReuseIdentifier: $0.identifier) }
+        cellClasses.forEach { self.register(UINib(nibName: $0.identifier, bundle: Bundle.main),
+                                            forCellReuseIdentifier: $0.identifier)
+        }
     }
 }

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 class Photo: Decodable {
-    
     enum State: Int, Decodable {
         case new, downloaded, failed, filtered
     }
@@ -24,7 +22,6 @@ class Photo: Decodable {
     init(tag: [Tags]) {
         self.tags = tag
     }
-    
 }
 
 class Tags: Decodable {
@@ -43,7 +40,6 @@ class Source: Decodable {
         case title
         case coverPhoto = "cover_photo"
     }
-    
     init(title: String, coverPhoto: CoverPhoto) {
         self.title = title
         self.coverPhoto = coverPhoto

@@ -17,7 +17,7 @@
 		95F0039A26411514004E85CF /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0039926411514004E85CF /* URLParameterEncoder.swift */; };
 		95F0039E26411535004E85CF /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0039D26411535004E85CF /* ParameterEncoding.swift */; };
 		95F003A126411550004E85CF /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003A026411550004E85CF /* JSONParameterEncoder.swift */; };
-		95F003A426411586004E85CF /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003A326411586004E85CF /* EndPointType.swift */; };
+		95F003A426411586004E85CF /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003A326411586004E85CF /* EndPoint.swift */; };
 		95F003A8264115A9004E85CF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003A7264115A9004E85CF /* HTTPMethod.swift */; };
 		95F003AB264115CB004E85CF /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003AA264115CB004E85CF /* HTTPTask.swift */; };
 		95F003AE264115DD004E85CF /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F003AD264115DD004E85CF /* NetworkLogger.swift */; };
@@ -50,7 +50,7 @@
 		95F0039926411514004E85CF /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		95F0039D26411535004E85CF /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		95F003A026411550004E85CF /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
-		95F003A326411586004E85CF /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		95F003A326411586004E85CF /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		95F003A7264115A9004E85CF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		95F003AA264115CB004E85CF /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		95F003AD264115DD004E85CF /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		95F003A626411592004E85CF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				95F003A326411586004E85CF /* EndPointType.swift */,
+				95F003A326411586004E85CF /* EndPoint.swift */,
 				95F003A7264115A9004E85CF /* HTTPMethod.swift */,
 				95F003AA264115CB004E85CF /* HTTPTask.swift */,
 				95F003AD264115DD004E85CF /* NetworkLogger.swift */,
@@ -286,6 +286,7 @@
 				95F003732641127B004E85CF /* Frameworks */,
 				95F003742641127B004E85CF /* Resources */,
 				6501A43D3F722032B36BB3CC /* [CP] Embed Pods Frameworks */,
+				95F0041926428DD8004E85CF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -360,6 +361,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OperationQueueDemo/Pods-OperationQueueDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		95F0041926428DD8004E85CF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\n  fi\n";
+		};
 		9AE7CA72714C8CC5E18A8093 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,7 +425,7 @@
 				95F003CC264124B6004E85CF /* PhotoCellViewModel.swift in Sources */,
 				95F0037A2641127B004E85CF /* AppDelegate.swift in Sources */,
 				95F0037C2641127B004E85CF /* SceneDelegate.swift in Sources */,
-				95F003A426411586004E85CF /* EndPointType.swift in Sources */,
+				95F003A426411586004E85CF /* EndPoint.swift in Sources */,
 				95F003B726411627004E85CF /* NetworkResponse.swift in Sources */,
 				95F003C626412230004E85CF /* PhotoViewModel.swift in Sources */,
 				95F003C326412117004E85CF /* PhotoTableViewCell.swift in Sources */,

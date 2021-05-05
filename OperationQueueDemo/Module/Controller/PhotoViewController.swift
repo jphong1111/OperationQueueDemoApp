@@ -8,7 +8,6 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView.viewWithOutARMask()
         tableView.backgroundColor = .white
@@ -20,7 +19,6 @@ class PhotoViewController: UIViewController {
         tableView.registerNibCell(PhotoTableViewCell.self)
         return tableView
     }()
-    
     lazy var viewModel = PhotoViewModel(delegate: self)
     
     override func viewDidLoad() {
@@ -35,33 +33,27 @@ extension PhotoViewController: PhotoListViewModelDelegate {
     func reload() {
         self.tableView.reloadData()
     }
-    
     func show(error: AppError) {
-        
     }
 }
 
 extension PhotoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows()
+        viewModel.numberOfRows()
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.configureCell(in: tableView, for: indexPath)
+        viewModel.configureCell(in: tableView, for: indexPath)
     }
 }
 
 extension PhotoViewController: UITableViewDelegate {
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         viewModel.suspendResumeAllOperations(isSuspended: true)
     }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         viewModel.performOperationForOnScreenCells(in: self.tableView)
         viewModel.suspendResumeAllOperations(isSuspended: false)
     }
-    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             viewModel.performOperationForOnScreenCells(in: self.tableView)
@@ -69,4 +61,3 @@ extension PhotoViewController: UITableViewDelegate {
         }
     }
 }
-
