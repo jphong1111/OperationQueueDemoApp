@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoTableViewCell" rowHeight="206" id="fMF-rH-BRz" customClass="PhotoTableViewCell" customModule="OperationQueueDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="206"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMF-rH-BRz" id="Dlt-fY-V52">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="206"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-kn-D7r">
+                        <rect key="frame" x="20" y="20" width="150" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="5LY-ev-hFP"/>
+                            <constraint firstAttribute="width" constant="150" id="M54-n2-L3g"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-j2-Roi">
+                        <rect key="frame" x="190" y="20" width="198" height="150"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TUz-SB-QdS">
+                        <rect key="frame" x="194" y="85" width="20" height="20"/>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uLr-kn-D7r" firstAttribute="top" secondItem="Dlt-fY-V52" secondAttribute="top" constant="20" id="IyR-se-Dvr"/>
+                    <constraint firstAttribute="trailing" secondItem="ObC-j2-Roi" secondAttribute="trailing" constant="20" id="Kav-V0-kVW"/>
+                    <constraint firstItem="TUz-SB-QdS" firstAttribute="centerX" secondItem="Dlt-fY-V52" secondAttribute="centerX" id="Sb8-F4-qRp"/>
+                    <constraint firstItem="TUz-SB-QdS" firstAttribute="centerY" secondItem="Dlt-fY-V52" secondAttribute="centerY" id="b6q-Fx-Z5E"/>
+                    <constraint firstAttribute="bottom" secondItem="uLr-kn-D7r" secondAttribute="bottom" constant="20" id="cv9-gq-Fmj"/>
+                    <constraint firstItem="uLr-kn-D7r" firstAttribute="leading" secondItem="Dlt-fY-V52" secondAttribute="leading" constant="20" id="ftH-qZ-lit"/>
+                    <constraint firstItem="ObC-j2-Roi" firstAttribute="leading" secondItem="uLr-kn-D7r" secondAttribute="trailing" constant="20" id="nRU-Kz-7Dc"/>
+                    <constraint firstItem="ObC-j2-Roi" firstAttribute="top" secondItem="Dlt-fY-V52" secondAttribute="top" constant="20" id="w9l-ag-3Mc"/>
+                    <constraint firstItem="uLr-kn-D7r" firstAttribute="centerY" secondItem="Dlt-fY-V52" secondAttribute="centerY" id="x1o-P4-nWO"/>
+                    <constraint firstAttribute="bottom" secondItem="ObC-j2-Roi" secondAttribute="bottom" constant="20" id="yXO-2D-kIf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="indicatorView" destination="TUz-SB-QdS" id="Vw2-OL-Adg"/>
+                <outlet property="photoImageView" destination="uLr-kn-D7r" id="75K-q9-YXg"/>
+                <outlet property="title" destination="ObC-j2-Roi" id="wa4-zZ-NOR"/>
+            </connections>
+            <point key="canvasLocation" x="-186.95652173913044" y="-8.0357142857142847"/>
+        </tableViewCell>
+    </objects>
+</document>
