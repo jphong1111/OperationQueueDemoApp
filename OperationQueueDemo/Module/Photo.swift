@@ -17,10 +17,14 @@ class Photo: Decodable {
     var tags: [Tags]
     var state = State.new
     var image: Data?
-
+    
+    enum CodingKeys: String, CodingKey {
+        case tags, state, image
+    }
     init(tag: [Tags]) {
         self.tags = tag
     }
+    
 }
 
 class Tags: Decodable {
